@@ -1,0 +1,6 @@
+*
+*/**
+!package.json
+!build/**/*.js
+!README.md
+!CHANGELOG.md

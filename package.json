@@ -1,0 +1,73 @@
+{
+  "name": "zero-reference",
+  "version": "1.0.0",
+  "description": "Find and show code with no references at all",
+  "displayName": "Zero Reference",
+  "publisher": "Ky6uk",
+  "repository": "https://github.com/Ky6uk/vscode-zero-reference",
+  "author": {
+    "name": "Roman Nuritdinov (Ky6uk)",
+    "email": "ky6uk.kun@gmail.com",
+    "url": "https://github.com/Ky6uk"
+  },
+  "license": "MIT",
+  "bugs": "https://github.com/Ky6uk/vscode-zero-reference/issues",
+  "main": "./build/extension",
+  "scripts": {
+    "build": "tsc -p ./",
+    "lint": "tslint --project .",
+    "watch": "tsc --watch -p ./",
+    "vscode:prepublish": "yarn lint && yarn build",
+    "vscode:publish": "vsce publish",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "package": "vsce package"
+  },
+  "engines": {
+    "vscode": "^1.28.2"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "reference",
+    "type",
+    "cleanup",
+    "codelens",
+    "typescript"
+  ],
+  "galleryBanner": {
+    "color": "#ffcc00"
+  },
+  "contributes": {
+    "configuration": {
+      "title": "Zero Reference configuration",
+      "properties": {
+        "zeroReference.useCodeLens": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use CodeLens for displaying entries with no references"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "zeroReference.toggleCodeLens",
+        "title": "Toggle CodeLens",
+        "category": "Zero Reference"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onCommand:zeroReference.toggleCodeLens"
+  ],
+  "devDependencies": {
+    "@types/node": "10.12.0",
+    "tslint": "5.11.0",
+    "tslint-eslint-rules": "5.4.0",
+    "typescript": "3.1.3",
+    "vsce": "1.52.0",
+    "vscode": "1.1.21"
+  }
+}

@@ -1,0 +1,372 @@
+extends:
+  - 'tslint-eslint-rules'
+
+rules:
+
+  # TypeScript-specific
+
+  adjacent-overload-signatures: true
+  ban-types: false
+
+  # TODO maybe we should enforce public declarations
+  member-access: [true, 'no-public']
+
+  member-ordering:
+    severity: 'off'
+    options:
+      order:
+        - 'private-static-field'
+        - 'protected-static-field'
+        - 'public-static-field'
+        - 'private-static-method'
+        - 'protected-static-method'
+        - 'public-static-method'
+        - 'public-instance-field'
+        - 'protected-instance-field'
+        - 'private-instance-field'
+        - 'private-constructor'
+        - 'protected-constructor'
+        - 'public-constructor'
+        - 'private-instance-method'
+        - 'protected-instance-method'
+        - 'public-instance-method'
+
+  no-any: false
+  no-empty-interface: true
+  no-import-side-effect: false
+  no-inferrable-types: true
+  no-internal-module: true
+  no-magic-numbers: false
+  no-namespace: true
+  no-non-null-assertion: false
+  no-parameter-reassignment: true
+  no-reference: true
+  no-var-requires: true
+  only-arrow-functions: [true, 'allow-declarations', 'allow-named-functions']
+  prefer-for-of: true
+  typedef: false
+
+  # TODO: should ignore interfaces
+  typedef-whitespace:
+    severity: 'off'
+    options:
+      - call-signature: 'onespace'
+        index-signature: 'nospace'
+        parameter: 'nospace'
+        property-declaration: 'nospace'
+        variable-declaration: 'onespace'
+      - call-signature: 'onespace'
+        index-signature: 'onespace'
+        parameter: 'onespace'
+        property-declaration: 'onespace'
+        variable-declaration: 'onespace'
+
+    unified-signatures: true
+
+  # Functionality
+
+  ban-comma-operator: true
+  ban: false
+  curly: true
+  forin: true
+  import-blacklist: false
+  label-position: true
+  no-arg: true
+  no-bitwise: true
+  no-conditional-assignment: true
+  no-console: true
+  no-construct: true
+  no-debugger: true
+  no-duplicate-super: true
+  no-duplicate-switch-case: true
+  no-duplicate-variable: [true, 'check-parameters']
+  no-dynamic-delete: true
+  no-empty: true
+  no-eval: true
+  no-implicit-dependencies: false
+  no-invalid-template-strings: true
+  no-invalid-this: true
+  no-misused-new: true
+  no-null-keyword: false
+  no-object-literal-type-assertion: true
+  no-return-await: true
+
+  no-shadowed-variable:
+    severity: 'off'
+    options:
+      class: true
+      enum: true
+      function: true
+      interface: true
+      namespace: true
+      typeAlias: true
+      typeParameter: true
+
+  no-sparse-arrays: true
+  no-string-literal: true
+
+  no-string-throw:
+    severity: 'off'
+
+  no-submodule-imports: false
+  no-switch-case-fall-through: true
+
+  no-this-assignment:
+    severity: 'error'
+    options:
+      allow-destructuring: true
+
+  no-unnecessary-class: true
+  no-unsafe-finally: true
+  no-unused-expression: [true, 'allow-fast-null-checks']
+  no-var-keyword: true
+  prefer-conditional-expression: true
+  prefer-object-spread: true
+  radix: true
+  switch-default: false
+  triple-equals: true
+  use-isnan: true
+
+  # Maintainability
+
+  cyclomatic-complexity: true
+  eofline: true
+  indent: [true, 'spaces', 2]
+  linebreak-style: [true, 'LF']
+  max-classes-per-file: false
+
+  max-file-line-count:
+    severity: 'off'
+    options: 300
+
+  max-line-length:
+    severity: 'off'
+    options: 120
+
+  no-default-export: false
+  no-duplicate-imports: true
+  no-mergeable-namespace: true
+  no-require-imports: true
+
+  object-literal-sort-keys:
+    severity: 'off'
+    options:
+      - 'ignore-case'
+      - 'shorthand-first'
+
+  prefer-const: true
+  prefer-while: true
+
+  trailing-comma:
+    severity: 'error'
+    options:
+      multiline: 'never'
+      singleline: 'never'
+
+  # Styles
+
+  # TODO: broken fixer and some kind of options
+  align:
+    severity: 'error'
+    options:
+      - 'members'
+      - 'parameters'
+      - 'statements'
+
+  array-type: [true, 'array']
+
+  # TODO: needs check to return shorthand
+  arrow-parens: false
+
+  arrow-return-shorthand: true
+  binary-expression-operand-order: true
+
+  # TODO
+  callable-types: false
+
+  class-name: true
+  comment-format: [true, 'check-space']
+  completed-docs: false
+  encoding: true
+  file-header: false
+
+  # TODO: need support for pattern matching
+  file-name-casing: false
+
+  import-spacing: true
+
+  interface-name:
+    severity: 'off'
+    options: ['never-prefix']
+
+  interface-over-type-literal: true
+  jsdoc-format: [true, 'check-multiline-start']
+
+  # TODO (type info)
+  match-default-export-name: false
+
+  newline-before-return: true
+  newline-per-chained-call: false
+  new-parens: true
+  no-angle-bracket-type-assertion: false
+  no-boolean-literal-compare: false
+  no-consecutive-blank-lines: true
+  no-irregular-whitespace: true
+  no-parameter-properties: true
+  no-redundant-jsdoc: true
+  no-reference-import: true
+  no-trailing-whitespace: true
+  no-unnecessary-callback-wrapper: false
+  no-unnecessary-initializer: true
+  number-literal-format: true
+  object-literal-key-quotes: [true, 'as-needed']
+  object-literal-shorthand: true
+
+  one-line:
+    severity: 'error'
+    options:
+      - 'check-else'
+      - 'check-open-brace'
+      - 'check-whitespace'
+
+  one-variable-per-declaration: true
+
+  # TODO: add priority for CONSTANTS and OtherThings
+  ordered-imports:
+    severity: 'off'
+    options:
+      import-sources-order: 'any'
+
+  # TODO: should be ignored for JSX methods like (render)
+  prefer-function-over-method: false
+
+  prefer-method-signature: true
+  prefer-switch: true
+  prefer-template: true
+  quotemark: [true, 'single', 'jsx-double']
+  semicolon: [true, 'always']
+
+  space-before-function-paren:
+    severity: 'error'
+    options:
+      anonymous: 'always'
+      named: 'never'
+      asyncArrow: 'always'
+      method: 'never'
+      constructor: 'never'
+
+  space-within-parens: 0
+  switch-final-break: false
+  type-literal-delimiter: true
+  variable-name: [true, 'ban-keywords', 'check-formatreplaceno']
+
+  whitespace:
+    severity: 'error'
+    options:
+      - 'check-branch'
+      - 'check-decl'
+      - 'check-operator'
+      - 'check-module'
+      - 'check-separator'
+      - 'check-rest-spread'
+      - 'check-type'
+      - 'check-typecast'
+      - 'check-type-operator'
+      - 'check-preblock'
+
+  # Plugin rules: tslint-eslint-rules
+
+  # Possible Errors
+
+  no-constant-condition: true
+  no-control-regex: true
+  no-duplicate-case: true
+  no-empty-character-class: true
+  no-ex-assign: true
+  no-extra-boolean-cast: true
+  no-extra-semi: true
+  no-inner-declarations: [true, 'both']
+  no-invalid-regexp: true
+  ter-no-irregular-whitespace: true
+  no-regex-spaces: true
+  ter-no-sparse-arrays: true
+  no-unexpected-multiline: true
+  valid-jsdoc: false
+  valid-typeof: true
+
+  # Best Practices
+
+  no-multi-spaces:
+    severity: 'error'
+    options:
+      exceptions:
+        PropertyAssignment: false
+
+  ter-no-proto: true
+  ter-no-script-url: true
+
+  # Strict Mode
+
+  # Variables
+
+  # Node.js and CommonJS
+
+  handle-callback-err: [true, 'error']
+
+  # Stylistic Issues
+
+  array-bracket-spacing: [true, 'never']
+  block-spacing: [true, 'always']
+
+  brace-style:
+    severity: 'error'
+    options:
+      - '1tbs'
+      - allowSingleLine: false
+
+  ter-computed-property-spacing: [true, 'never']
+
+  ter-indent:
+    severity: 'error'
+    options:
+      - 2
+      - SwitchCase: 1
+
+  ter-max-len:
+    severity: 'error'
+    options:
+      code: 100
+      tabWidth: 2
+
+  ter-newline-after-var: [true, 'always']
+  ter-no-mixed-spaces-and-tabs: [true, 'spaces']
+  object-curly-spacing: [true, 'always']
+  ter-padded-blocks: [true, 'never']
+
+  # TODO: extend sorting order by relative path / external modules
+  sort-imports: false
+
+  space-in-parens: [true, 'never']
+  ter-no-tabs: true
+
+  # ECMAScript 6
+
+  ter-arrow-body-style:
+    severity: 'error'
+    options:
+      - 'as-needed'
+      - requireReturnForObjectLiteral: true
+
+  ter-arrow-parens:
+    severity: 'error'
+    options:
+      - 'as-needed'
+      - requireForBlockBody: true
+
+  ter-arrow-spacing:
+    severity: 'error'
+    options:
+      before: true
+      after: true
+
+  ter-prefer-arrow-callback: true

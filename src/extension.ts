@@ -1,10 +1,11 @@
 import { commands, languages, ExtensionContext } from 'vscode';
 import Provider from './CodeLensProvider';
-import { updateConfig, getCurrentConfig, documetFilter } from './config';
+import { updateConfig, getCurrentConfig, getDocumentFilter } from './config';
 
 // main activation entry of extension
 export function activate(context: ExtensionContext) {
   const codeLensProvider = new Provider();
+  const documentFilter = getDocumentFilter();
 
   context.subscriptions.push(
     commands.registerCommand('zeroReference.toggleCodeLens', () => {
@@ -16,6 +17,6 @@ export function activate(context: ExtensionContext) {
   );
 
   context.subscriptions.push(
-    languages.registerCodeLensProvider(documetFilter, codeLensProvider)
+    languages.registerCodeLensProvider(documentFilter, codeLensProvider)
   );
 }

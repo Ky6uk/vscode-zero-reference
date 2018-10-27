@@ -13,6 +13,7 @@ Supported Languages
 -------------------
 
 * TypeScript
+* JavaScript (note about [jsconfig.json](https://code.visualstudio.com/docs/languages/jsconfig))
 
 
 Installation

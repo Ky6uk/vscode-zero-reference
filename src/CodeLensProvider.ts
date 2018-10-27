@@ -28,6 +28,7 @@ class Provider implements CodeLensProvider {
 
   async provideCodeLenses(document: TextDocument): Promise<CodeLens[] | null> {
     const config = getCurrentConfig();
+    const language = document.languageId;
 
     // just ignore computation if this extension is disabled
     if (!config.useCodeLens) {
@@ -51,7 +52,7 @@ class Provider implements CodeLensProvider {
       // Still don't know why I wrote this
       // Just filtration of DocumentSymbol, I never seen SymbolInformation here.
       if (isDocumentSymbol(symbol)) {
-        rangesList.push(...parseDocumentSymbol(symbol));
+        rangesList.push(...parseDocumentSymbol(symbol, language));
       }
     }
 

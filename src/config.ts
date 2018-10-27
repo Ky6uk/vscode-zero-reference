@@ -1,15 +1,62 @@
-import { workspace, ConfigurationTarget, DocumentFilter } from 'vscode';
+import { workspace, ConfigurationTarget, DocumentFilter, SymbolKind } from 'vscode';
 
 interface Config {
   readonly useCodeLens: boolean;
 }
 
-// Document filter is needed to activate commands of this extension only
-// for supported file types
-export const documetFilter: DocumentFilter[] = [
-  { language: 'typescript' },
-  { language: 'typescriptreact' }
-];
+// supported languages and its kinds
+// https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers
+//
+// We will ignore kinds not listed here
+export const supportedKinds = new Map([
+  ['typescript', [
+    SymbolKind.Class,
+    SymbolKind.Function,
+    SymbolKind.Method,
+    SymbolKind.Property,
+    SymbolKind.Variable,
+    SymbolKind.Enum,
+    SymbolKind.Interface,
+    SymbolKind.Module
+  ]],
+
+  ['typescriptreact', [
+    SymbolKind.Class,
+    SymbolKind.Function,
+    SymbolKind.Method,
+    SymbolKind.Property,
+    SymbolKind.Variable,
+    SymbolKind.Enum,
+    SymbolKind.Interface,
+    SymbolKind.Module
+  ]],
+
+  ['javascript', [
+    SymbolKind.Class,
+    SymbolKind.Function,
+    SymbolKind.Method,
+    SymbolKind.Property,
+    SymbolKind.Variable
+  ]],
+
+  ['javascriptreact', [
+    SymbolKind.Class,
+    SymbolKind.Function,
+    SymbolKind.Method,
+    SymbolKind.Property,
+    SymbolKind.Variable
+  ]]
+]);
+
+/**
+ * Returns document filter which is required to activate commands
+ * for supported file types only.
+ */
+export function getDocumentFilter() : DocumentFilter[] {
+  return [...supportedKinds.keys()].map((languageId) => {
+    return { language: languageId };
+  });
+}
 
 // Get corrent configuration of this extension
 export function getCurrentConfig(): Config {

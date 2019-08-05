@@ -1,6 +1,6 @@
 {
   "name": "zero-reference",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Find and show code with no references at all",
   "displayName": "Zero Reference",
   "publisher": "Ky6uk",
@@ -17,7 +17,7 @@
     "build": "tsc -p ./",
     "lint": "tslint --project .",
     "watch": "tsc --watch -p ./",
-    "vscode:prepublish": "yarn lint && yarn build",
+    "vscode:prepublish": "npm run lint && npm run build",
     "vscode:publish": "vsce publish",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "package": "vsce package"
@@ -65,11 +65,11 @@
     "onCommand:zeroReference.toggleCodeLens"
   ],
   "devDependencies": {
-    "@types/node": "10.12.0",
-    "tslint": "5.11.0",
+    "@types/node": "12.6.9",
+    "tslint": "5.18.0",
     "tslint-eslint-rules": "5.4.0",
-    "typescript": "3.1.3",
-    "vsce": "1.52.0",
-    "vscode": "1.1.21"
+    "typescript": "3.5.3",
+    "vsce": "1.66.0",
+    "vscode": "1.1.36"
   }
 }

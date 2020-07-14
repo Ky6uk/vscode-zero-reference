@@ -1,6 +1,6 @@
 {
   "name": "zero-reference",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Find and show code with no references at all",
   "displayName": "Zero Reference",
   "publisher": "Ky6uk",
@@ -66,12 +66,12 @@
     "onCommand:zeroReference.toggleCodeLens"
   ],
   "devDependencies": {
-    "@types/node": "12.11.7",
-    "rimraf": "^3.0.0",
-    "tslint": "5.20.0",
+    "@types/node": "14.0.23",
+    "rimraf": "^3.0.2",
+    "tslint": "6.1.2",
     "tslint-eslint-rules": "5.4.0",
-    "typescript": "3.6.4",
-    "vsce": "1.68.0",
-    "vscode": "1.1.36"
+    "typescript": "3.9.6",
+    "vsce": "1.77.0",
+    "vscode": "1.1.37"
   }
 }
